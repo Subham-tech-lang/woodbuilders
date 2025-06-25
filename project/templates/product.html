@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>{{ product.name }}</h3>
+<img src="{{ url_for('static', filename='images/' + product.image) }}" width="300"><br><br>
+<p><strong>Description:</strong> {{ product.description }}</p>
+<p><strong>Price:</strong> ₹{{ product.price }}</p>
+<a href="#">Add to Cart</a>
+<a href="{{ url_for('add_to_cart', product_id=product.id) }}">Add to Cart 🛒</a>
+
+{% endblock %}

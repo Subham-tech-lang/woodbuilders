@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>Shop Our Collection</h3>
+<div style="display:flex; gap:20px; flex-wrap:wrap;">
+  {% for product in products %}
+    <div style="border:1px solid #ccc; padding:10px; width:200px;">
+        <img src="{{ url_for('static', filename='images/' + product.image) }}" width="180"><br>
+        <strong>{{ product.name }}</strong><br>
+        ₹{{ product.price }}<br>
+        <a href="{{ url_for('product', product_id=product.id) }}">View Details</a>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
